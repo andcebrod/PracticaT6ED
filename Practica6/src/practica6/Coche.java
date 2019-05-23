@@ -19,6 +19,24 @@ public class Coche {
 		modelo = mo;
 		fabricante = f;
 	}
+	
+	public String metodoA (String model, String fabric) 
+	{
+		String resultado="es un "+fabric+" "+model+" y gasta 1,337 euros por litro.";
+		return resultado;
+		
+	}
+	public String metodoB (String model, String fabric) 
+	{
+		String resultado="es un "+fabric+" "+model+" y gasta 1,052 euros por litro.";
+		return resultado;
+		
+	}
+	public String metodoC (String model, String fabric) 
+	{
+		String resultado="es un "+fabric+" "+model+" y no necesita combustible.";
+		return resultado;
+	}
 
 	public String metodo1() {
 		String resultado = "";
