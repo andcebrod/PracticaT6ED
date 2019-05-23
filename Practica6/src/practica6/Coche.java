@@ -1,73 +1,89 @@
 package practica6;
 
 public class Coche {
-	//Atributos sin encapsular
-	//Faltan Getters y Setters
-	String matricula;
-	String atrib;
-	String modelo;
-	String fabricante;
+	private static final String EL_COCHE_CON_MATRICULA = "El coche con matricula ";
+	private static final String ES_UN = "es un ";
+	private String matricula;
+	private String atrib;
+	private String modelo;
+	private String fabricante;
+
+	String getFabricante() {
+		return fabricante;
+	}
+
+	void setFabricante(String fabricante) {
+		this.fabricante = fabricante;
+	}
+
+	String getModelo() {
+		return modelo;
+	}
+
+	void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	String getAtrib() {
+		return atrib;
+	}
+
+	void setAtrib(String atrib) {
+		this.atrib = atrib;
+	}
+
+	String getMatricula() {
+		return matricula;
+	}
+
+	void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
 
 	public Coche() {
-		matricula = "";
-		atrib = "";
-		modelo = "";
-		fabricante = "";
+		setMatricula("");
+		setAtrib("");
+		setModelo("");
+		setFabricante("");
 	}
 
 	public Coche(String m, String c, String mo, String f) {
-		matricula = m;
-		atrib = c;
-		modelo = mo;
-		fabricante = f;
+		setMatricula(m);
+		setAtrib(c);
+		setModelo(mo);
+		setFabricante(f);
 	}
 	
-	//Cambiar nombre al método
-	public String metodoA (String model, String fabric) 
+	public String esGasolina (String model, String fabric) 
 	{
-		//Extraer constante
-		//Extraer variable
-		String resultado="es un "+fabric+" "+model+" y gasta 1,337 euros por litro.";
+		String Gasolina = " y gasta 1,337 euros por litro.";
+		String resultado=ES_UN+fabric+" "+model+Gasolina;
 		return resultado;
 		
 	}
-	//Cambiar nombre al método
-	public String metodoB (String model, String fabric) 
+	public String esDiesel (String model, String fabric) 
 	{
-		//Extraer constante
-		//Extraer variable
-		String resultado="es un "+fabric+" "+model+" y gasta 1,052 euros por litro.";
+		String Diesel = " y gasta 1,052 euros por litro.";
+		String resultado=ES_UN+fabric+" "+model+Diesel;
 		return resultado;
 	}
-	//Cambiar nombre al método
-	public String metodoC (String model, String fabric) 
+	public String esHibrido (String model, String fabric) 
 	{
-		//Extraer constante
-		//Extraer variable
-		String resultado="es un "+fabric+" "+model+" y no necesita combustible.";
+		String Hibrido = " y no necesita combustible.";
+		String resultado=ES_UN+fabric+" "+model+Hibrido;
 		return resultado;
 	}
-	//Cambiar nombre al método
-	public String metodo1() {
+	public String mostrarGastoYMatricula() {
 		String resultado = "";
-		if (atrib == "Gasolina") {
-			//Duplicación de código
-			//Extraer constante
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoA(modelo, fabricante);
-		} else if (atrib == "Diesel") {
-			//Duplicación de código
-			//Extraer constante
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoB(modelo, fabricante);
-		} else if (atrib == "Híbrido") {
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoC(modelo, fabricante);
+		if (getAtrib() == "Gasolina") {
+			resultado = EL_COCHE_CON_MATRICULA + getMatricula() + " "+esGasolina(getModelo(), getFabricante());
+		} else if (getAtrib() == "Diesel") {
+			resultado = EL_COCHE_CON_MATRICULA + getMatricula() + " "+esDiesel(getModelo(), getFabricante());
+		} else if (getAtrib() == "Híbrido") {
+			resultado = EL_COCHE_CON_MATRICULA + getMatricula() + " "+esHibrido(getModelo(), getFabricante());
 		} else {
-			//Duplicación de código
-			//Extraer constante
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += "no dispone de información";
+			String SinInformacion = "no dispone de información";
+			resultado = EL_COCHE_CON_MATRICULA + getMatricula() + " "+SinInformacion;
 		}
 		return resultado;
 	}
