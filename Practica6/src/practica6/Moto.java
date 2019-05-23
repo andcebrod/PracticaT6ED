@@ -1,6 +1,7 @@
 package practica6;
 
 public class Moto {
+	//Atributos sin encapsular
 	String matricula;
 	int cilindrada;
 
